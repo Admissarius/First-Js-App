@@ -16,6 +16,14 @@ export class Question {
         .then(Question.renderList)
     }
 
+    static fetch(token){
+        return fetch('https://podcast-js-app-3d30c-default-rtdb.europe-west1.firebasedatabase.app/questions.json')
+            .then(responce => responce.json())
+            .then(questions => {
+                console.log('Questions', questions);
+            })
+    }
+
     static renderList() {
         const questions = getQuestionsFromLocalStorage()
 
